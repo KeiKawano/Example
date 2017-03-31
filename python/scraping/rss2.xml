@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>gihyo.jp：総合</title>
+ <link>http://gihyo.jp/</link>
+ <description>gihyo.jp（総合）の更新情報をお届けします</description>
+ <language>ja-jp</language>
+ <copyright>技術評論社 2017</copyright>
+ <lastBuildDate>Fri, 31 Mar 2017 19:52:01 +0900</lastBuildDate>
+ <image>
+  <url>http://gihyo.jp/assets/templates/gihyojp2007/image/header_logo_gihyo.gif</url>
+  <title>gihyo.jp</title>
+  <link>http://gihyo.jp/</link>
+ </image>
+ <item>
+  <title>＠ｃｏｓｍｅプロジェクトマネージャーが語る「IT×人材の新常識」―ラクスのJavaエンジニア派遣を選んだ理由 ── 一般記事</title>
+  <link>http://gihyo.jp/dev/column/01/java/2017/rakus-java-engineer</link>
+  <description>（株）アイスタイルの今井陽太氏が率いるチームでは，事業拡大に伴って開発量が増加する一方，十分な人材を確保できていないという課題がありました。そこで使われたのがラクスの『Javaエンジニア派遣』です。</description>
+  <pubDate>Fri, 31 Mar 2017 17:30:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/dev/column">一般記事</category>
+  <guid>http://gihyo.jp/dev/column/01/java/2017/rakus-java-engineer</guid> 
+  <author>編集部</author>
+ </item>
+ <item>
+  <title>2017年3月31日　技評ねこ部の投稿コーナー！ ── 技評ねこ部通信</title>
+  <link>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/31</link>
+  <description>今月もなんとか続けられました！ありがとうございます！さて，本日は投稿いただいた写真をご紹介いたします！</description>
+  <pubDate>Fri, 31 Mar 2017 15:00:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/lifestyle/clip/01/everyday-cat">技評ねこ部通信</category>
+  <guid>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/31</guid> 
+  <author></author>
+ </item>
+ <item>
+  <title>2017年3月31日号　17.04と関連するアップデート・UWN#504 ── Ubuntu Weekly Topics</title>
+  <link>http://gihyo.jp/admin/clip/01/ubuntu-topics/201703/31</link>
+  <description>3月最終日を迎え，いよいよ17.04のリリースが迫ってきました。今回は比較的おとなしいリリースとなるため，（Ubuntuにしては非常に珍しく）リリースノートがある程度完成した状態になっています。</description>
+  <pubDate>Fri, 31 Mar 2017 11:17:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/clip/01/ubuntu-topics">Ubuntu Weekly Topics</category>
+  <guid>http://gihyo.jp/admin/clip/01/ubuntu-topics/201703/31</guid> 
+  <author>吉田史</author>
+ </item>
+ <item>
+  <title>NTTスマートコネクト，動画配信サービス「SmartSTREAM」のサービス／料金を改訂 ── ニュースリリース</title>
+  <link>http://gihyo.jp/news/nr/2017/03/3101</link>
+  <description>エヌ・ティ・ティ・スマートコネクト（株）は，同社が提供している動画配信サービス「SmartSTREAM」において，4月1日から料金改訂と仕様変更を行うことを発表した。</description>
+  <pubDate>Fri, 31 Mar 2017 10:45:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/news/nr">ニュースリリース</category>
+  <guid>http://gihyo.jp/news/nr/2017/03/3101</guid> 
+  <author>技術評論社</author>
+ </item>
+ <item>
+  <title>ロクナナワークショップ「黒野明子のPhotoshop &amp; Illustratorによる効率的Webデザイン講座」と「IllustratorとPhotoshop基本講座」を大阪にて出張開講 ── ロクナナワークショップ NEWS &amp; REPORT</title>
+  <link>http://gihyo.jp/design/serial/01/67ws/0132</link>
+  <description>&gt;Webデザインの学校 ロクナナワークショップは，2017年4月22日と23日の2日間，大阪・十三での出張講座を開催します。</description>
+  <pubDate>Fri, 31 Mar 2017 10:21:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/design/serial/01/67ws">ロクナナワークショップ NEWS &amp; REPORT</category>
+  <guid>http://gihyo.jp/design/serial/01/67ws/0132</guid> 
+  <author>Web制作の学校 ロクナナワークショップ</author>
+ </item>
+ <item>
+  <title>第93回　DTraceの使い方 その13 ── BSD界隈四方山話</title>
+  <link>http://gihyo.jp/admin/serial/01/bsd-yomoyama/0093</link>
+  <description>今回は&quot;DTrace Dynamic Tracing In Oracle Solaris, Mac OS X &amp; FreeBSD&quot;から，セキュリティ的に実行を監視しておきたいユーザの動作をトレースするDスクリプトを取り上げます。</description>
+  <pubDate>Fri, 31 Mar 2017 10:20:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/serial/01/bsd-yomoyama">BSD界隈四方山話</category>
+  <guid>http://gihyo.jp/admin/serial/01/bsd-yomoyama/0093</guid> 
+  <author>後藤大地</author>
+ </item>
+ <item>
+  <title>プロ野球開幕記念，DL4Jでペナント予想！今年勝つのはどのチーム？――AIは解説者たちに勝てるのか ── インタビュー</title>
+  <link>http://gihyo.jp/news/interview/2017/03/3101</link>
+  <description>いよいよ本日，日本プロ野球ペナントリーグ2017年シーズンが開幕します。今回は，プロ野球開幕を記念して，AIを利用した順位予想を行った株式会社ビーブレイクシステムズのエンジニアにお話を伺いました。
+</description>
+  <pubDate>Fri, 31 Mar 2017 09:29:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/news/interview">インタビュー</category>
+  <guid>http://gihyo.jp/news/interview/2017/03/3101</guid> 
+  <author>馮富久</author>
+ </item>
+ <item>
+  <title>2017年3月30日　あの目で何を見ているのやら ── 技評ねこ部通信</title>
+  <link>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/30</link>
+  <description>「ネコ目」と言われるとかわいい感じがしますが，「トラ目」と言われた場合どう受け止めていいのやら・・・。</description>
+  <pubDate>Thu, 30 Mar 2017 15:00:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/lifestyle/clip/01/everyday-cat">技評ねこ部通信</category>
+  <guid>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/30</guid> 
+  <author></author>
+ </item>
+ <item>
+  <title>2017年3月30日　GNOME 3.26 &quot;Manchester&quot;のリリースは9月13日に ── Linux Daily Topics</title>
+  <link>http://gihyo.jp/admin/clip/01/linux_dt/201703/30</link>
+  <description>The GNOME Projectは3月29日，3月22日にリリースされた「GNOME 3.24」の次のメジャーバージョンにあたる「GNOME 3.26（開発コード&quot;Manchester&quot;）」のリリーススケジュールを公開。</description>
+  <pubDate>Thu, 30 Mar 2017 14:27:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/clip/01/linux_dt">Linux Daily Topics</category>
+  <guid>http://gihyo.jp/admin/clip/01/linux_dt/201703/30</guid> 
+  <author>階戸アキラ</author>
+ </item>
+ <item>
+  <title>エンジニア特化型Q&amp;Aサイト「teratail」，「エキスパートページ」を刷新，エキスパートエンジニアが29名に ── ニュースリリース</title>
+  <link>http://gihyo.jp/news/nr/2017/03/3001</link>
+  <description>レバレジーズ（株）は，エンジニア問題解決プラットフォーム「teratail」で著名エンジニアを紹介する「エキスパートページ」を3月30日に刷新した。</description>
+  <pubDate>Thu, 30 Mar 2017 11:32:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/news/nr">ニュースリリース</category>
+  <guid>http://gihyo.jp/news/nr/2017/03/3001</guid> 
+  <author>技術評論社</author>
+ </item>
+ <item>
+  <title>2017年3月第5週号 1位は，実験的なナビゲーションパターンいろいろ，気になるネタは，「Googleマップ」，駐車した場所を手動で保存可能に ── 週刊Webテク通信</title>
+  <link>http://gihyo.jp/design/clip/01/weekly-web-tech/201703/30</link>
+  <description>ネットで見かけたWebテク（Webテクニック・Webテクノロジー）記事から，Webデザイナーの目で厳選したネタを週刊で紹介するこのコーナー。今回は，2017年3月20日～3月26日の間に見つけた記事のベスト5です。</description>
+  <pubDate>Thu, 30 Mar 2017 10:23:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/design/clip/01/weekly-web-tech">週刊Webテク通信</category>
+  <guid>http://gihyo.jp/design/clip/01/weekly-web-tech/201703/30</guid> 
+  <author>芦之由</author>
+ </item>
+ <item>
+  <title>2017年3月第5週　Android O Developer Preview 1，リリース ── Android Weekly Topics</title>
+  <link>http://gihyo.jp/lifestyle/clip/01/awt/201703/30</link>
+  <description>2017年3月第5週のAndroid関連のニュースをお届けします。</description>
+  <pubDate>Thu, 30 Mar 2017 10:20:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/lifestyle/clip/01/awt">Android Weekly Topics</category>
+  <guid>http://gihyo.jp/lifestyle/clip/01/awt/201703/30</guid> 
+  <author>傍島康雄</author>
+ </item>
+ <item>
+  <title>2017年3月29日　探し物はなんですか？ ── 技評ねこ部通信</title>
+  <link>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/29</link>
+  <description>見つけにくいねこですが，何か？</description>
+  <pubDate>Wed, 29 Mar 2017 15:00:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/lifestyle/clip/01/everyday-cat">技評ねこ部通信</category>
+  <guid>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/29</guid> 
+  <author></author>
+ </item>
+ <item>
+  <title>第464回　知っておくべきLibreOfficeの便利な機能　Calc編 ── Ubuntu Weekly Recipe</title>
+  <link>http://gihyo.jp/admin/serial/01/ubuntu-recipe/0464</link>
+  <description>今回はLibreOffice Calcの便利な機能をざっくばらんに紹介します。</description>
+  <pubDate>Wed, 29 Mar 2017 10:46:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/serial/01/ubuntu-recipe">Ubuntu Weekly Recipe</category>
+  <guid>http://gihyo.jp/admin/serial/01/ubuntu-recipe/0464</guid> 
+  <author>あわしろいくや</author>
+ </item>
+ <item>
+  <title>第32回　2017年3月～Struts 2脆弱性（S2-045～S2-046）を俯瞰してみた ── インフラセキュリティの処方箋</title>
+  <link>http://gihyo.jp/admin/serial/01/infrasec/0032</link>
+  <description>2017年3月は，Struts 2の大型脆弱性で，対応に追われていた方も多いのではないでしょうか。今月は，Struts 2脆弱性の件について取り上げます。</description>
+  <pubDate>Wed, 29 Mar 2017 10:20:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/serial/01/infrasec">インフラセキュリティの処方箋</category>
+  <guid>http://gihyo.jp/admin/serial/01/infrasec/0032</guid> 
+  <author>宮本久仁男</author>
+ </item>
+ <item>
+  <title>LPI-Japan，Raspberry Piを利用した学生向けOSS体験セミナー，10回目を開催 ── ニュースリリース</title>
+  <link>http://gihyo.jp/news/nr/2017/03/2801</link>
+  <description>PI-Japanは，2017年1月14日（土），北海道帯広工業高校にて，Raspberry Piを利用したLinuxおよびデータベース体験セミナーを開催した。</description>
+  <pubDate>Tue, 28 Mar 2017 17:00:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/news/nr">ニュースリリース</category>
+  <guid>http://gihyo.jp/news/nr/2017/03/2801</guid> 
+  <author>技術評論社</author>
+ </item>
+ <item>
+  <title>2017年3月28日　Fedora 26の正式リリースがふたたび延期，アルファ版の提供も4月に ── Linux Daily Topics</title>
+  <link>http://gihyo.jp/admin/clip/01/linux_dt/201703/28</link>
+  <description>Fedoraプロジェクトは3月23日（米国時間），6月にリリース予定の次期バージョン「Fedora 26」の正式提供延期を決定した。</description>
+  <pubDate>Tue, 28 Mar 2017 15:32:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/clip/01/linux_dt">Linux Daily Topics</category>
+  <guid>http://gihyo.jp/admin/clip/01/linux_dt/201703/28</guid> 
+  <author>階戸アキラ</author>
+ </item>
+ <item>
+  <title>2017年3月28日　ねこに出会いたければ，運も大事！？ ── 技評ねこ部通信</title>
+  <link>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/28</link>
+  <description>ねこ界の「ふうてんのトラさん」です</description>
+  <pubDate>Tue, 28 Mar 2017 15:00:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/lifestyle/clip/01/everyday-cat">技評ねこ部通信</category>
+  <guid>http://gihyo.jp/lifestyle/clip/01/everyday-cat/201703/28</guid> 
+  <author></author>
+ </item>
+ <item>
+  <title>2017年3月27日　GNOME 3.24が正式リリース，Ubuntu 17.04やopenSUSE Tumbleweedで採用へ ── Linux Daily Topics</title>
+  <link>http://gihyo.jp/admin/clip/01/linux_dt/201703/27</link>
+  <description>The GNOME Projectは3月22日，オープンソースのデスクトップ環境「GNOME」の最新版メジャーバージョンである「GNOME 3.24（開発コード&quot;Portland&quot;）」を正式リリースした。</description>
+  <pubDate>Mon, 27 Mar 2017 17:58:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/admin/clip/01/linux_dt">Linux Daily Topics</category>
+  <guid>http://gihyo.jp/admin/clip/01/linux_dt/201703/27</guid> 
+  <author>階戸アキラ</author>
+ </item>
+ <item>
+  <title>ソラコム主催，IoT開発者向けカンファレンス「if-up2017」，4/20に開催 ── インフォメーション</title>
+  <link>http://gihyo.jp/news/info/2017/03/2701</link>
+  <description>（株）ソラコムは，同社が主催するIoT Technology Conference powered by SORACOM if-up2017を，4月20日に東京，御茶ノ水ソラシティカンファレンスにて開催する。</description>
+  <pubDate>Mon, 27 Mar 2017 16:17:00 +0900</pubDate>
+  <category domain="http://gihyo.jp/news/info">インフォメーション</category>
+  <guid>http://gihyo.jp/news/info/2017/03/2701</guid> 
+  <author>技術評論社</author>
+ </item>
+</channel>
+</rss>
