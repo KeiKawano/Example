@@ -1,6 +1,6 @@
 import re
 import sqlite3
-from urllib.request import ulopen
+from urllib.request import Request, urlopen
 from html import unescape
 
 def main():
@@ -8,7 +8,7 @@ def main():
       メインの処理。fetch(),scrape(),save()の３つの関数を呼び出す
     """
 
-    html = fetch('https://giohyo.jp/dp')
+    html = fetch('https://gihyo.jp/dp')
     books = scrape(html)
     save('books.db', books)
 
@@ -34,7 +34,7 @@ def scrape(html):
   """
 
   books = []
-  for partial_html in re.findall(r'a itemprop="url".*?<>\s*</a></li>', html, re.DOTALL):
+  for partial_html in re.findall(r'<a itemprop="url".*?</ul>\s*</a></li>', html, re.DOTALL):
     # 書籍のURLはitemprop="url"という属性を持つa要素のhref属性から取得する
     url = re.search(r'<a itemprop="url" href="(.*?)">', partial_html).group(1)
     url = 'https://gihyo.jp' + url # / で始まっているのでドメイン名などを追加する
@@ -72,7 +72,7 @@ def save(db_path, books):
   conn.close() # コネクションを閉じる
 
 # pythonコマンドで実行された場合にmain()関数を呼び出す。こればモジュールとして他のファイルからインポートされたときに、main()関数が実行されないようにするための、pythonにおける一般的なイディオム
-if _name_ == '_main_':
+if __name__ == '__main__':
   main()
 
 
