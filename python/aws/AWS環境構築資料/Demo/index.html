@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>JAWS DAYS Hands-On Example Page</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<style>
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+	}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+
+    #overlay{
+        display: none;
+        width: 100%;
+        height:100%;
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        background: rgba(0,0,0,0.4);
+    }
+    #overlay_text{
+        font-size: 40px;
+        color: #eee;
+        padding-top: 400px;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+
+	</style>
+</head>
+<body>
+
+<h1>JAWS DAYS 2017 ハンズオン</h1>
+
+<div class="ui-widget">
+	<p>AWSで始めるサーバレスな RESTful API システム<br />※初回読み込み時と、タブ切り替えの際にリスト表示を最新化しています。</p>
+</div>
+
+<!-- Tabs -->
+<div id="tabs">
+	<ul>
+		<li id="tabs-1-id"><a href="#tabs-1">GET</a></li>
+		<li id="tabs-2-id"><a href="#tabs-2">PUT</a></li>
+		<li id="tabs-3-id"><a href="#tabs-3">DELETE</a></li>
+	</ul>
+	<div id="tabs-1">
+		＜DyanmoDB リスト表示＞<br />
+		<span id="tabs-1-id-list"></span><br />
+		<hr>
+		<p>API Gatewayへの GETを行います。<br />以下にIDを指定してGETボタンをクリックして下さい。<br />対象の秘密の質問の内容がアラート表示されます。</p><br />
+		ID<input type="text" id="id-get-value" name="id-get-value" size="3" />
+		<button id="id-get">GET</button>
+		
+	</div>
+	<div id="tabs-2">
+		＜DyanmoDB リスト表示＞<br />
+		<span id="tabs-2-id-list"></span>
+		<hr>
+		<p>API Gatewayへの PUTを行います。<br />以下にIDを指定してPUTボタンをクリックして下さい。<br / >IDがなければ新規作成し、IDが存在すれば上書きを行います。</p><br />
+		ID<input type="text" id="id-put-value" name="id-put-value" size="3" />
+		Comment<input type="text" id="comment-put-value" name="comment-put-value" size="0" />
+		Secret_word<input type="text" id="secret_word-put-value" name="secret_word-put-value" size="10" />
+		<button id="id-put">PUT</button>
+	</div>
+	<div id="tabs-3">
+		＜DyanmoDB リスト表示＞<br />
+		<span id="tabs-3-id-list"></span>
+		<hr>
+		<p>API Gatewayへの DELETEを行います。<br />以下にIDを指定してDELETEボタンをクリックして下さい。<br />対象のIDのデータを削除します。</p><br />
+		ID<input type="text" id="id-delete-value" name="id-delete-value" size="6" />
+		<button id="id-delete">DELETE</button>
+	</div>
+</div>
+
+<div class="ui-widget" style="display: none" id="notification_ok">
+	<div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+		<p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+		<strong>OK：</strong> リクエストが正常に処理されました</p>
+	</div>
+</div>
+<div class="ui-widget"  style="display: none" id="notification_ng">
+	<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+		<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+		<strong>Alert：</strong> リクエストの処理に失敗しました</p>
+		<p id="err_msg">hogehoge</p>
+	</div>
+</div>
+
+<div id="overlay" style="display: none" >
+   <p id="overlay_text">処理中です</p>
+</div>
+
+
+<script>
+(function() {
+	// API Gatewayのエンドポイント
+	var API_endpoint = 'https://ixkoqfskz7.execute-api.ap-northeast-1.amazonaws.com/handson';
+
+	// 初回読み込み時
+	$(window).load(function(){
+		$("#tabs-1-id").click();
+	});
+	// 各タブ選択　リスト読み込み
+	$("#tabs-1-id").click(function(){
+		$("#notification_ok").hide();
+		$("#notification_ng").hide();	
+		list_get (this.id+"-list");
+	});
+	$("#tabs-2-id").click(function(){
+		$("#notification_ok").hide();
+		$("#notification_ng").hide();
+		list_get (this.id+"-list");
+	});
+	$("#tabs-3-id").click(function(){
+		$("#notification_ok").hide();
+		$("#notification_ng").hide();
+		list_get (this.id+"-list");
+	});
+
+	// 各ボタン選択時
+	// GET処理
+	$("#id-get").click(function(){
+		$("#notification_ok").hide();
+		$("#notification_ng").hide();
+
+		// IDチェック後 APIコール
+		if($.isNumeric($("#id-get-value").val())){	
+			resources_get($("#id-get-value").val());
+		}else{
+			alert("ID err");
+		}
+	});
+
+	// PUT処理
+	$("#id-put").click(function(){
+		$("#notification_ok").hide();
+		$("#notification_ng").hide();
+
+		// 取得データ
+		var req_data = {
+				'doc': $("#comment-put-value").val(),
+				'secret_word': $("#secret_word-put-value").val(),
+				'date': new Date()
+		};	
+		// IDチェック後 APIコール
+		if($.isNumeric($("#id-put-value").val())){	
+			resources_put($("#id-put-value").val(), req_data);
+		}else{
+			alert("ID err");
+		}
+	});
+
+	// DELETE処理
+	$("#id-delete").click(function(){
+		$("#notification_ok").hide();
+		$("#notification_ng").hide();
+
+		// IDチェック後 APIコール
+		if($.isNumeric($("#id-delete-value").val())){	
+			resources_delete($("#id-delete-value").val());
+		}else{
+			alert("ID err");
+		}
+	});
+
+	// リスト表示　GET - ALL
+	function list_get (target) {
+		$("#overlay").fadeIn();
+		$("#"+target).empty();
+	
+	   	$.ajax(API_endpoint+'/resource/', { 
+   					type: 'GET'
+  				}
+  			).done(function(result) {
+  					if(!$.isEmptyObject(result)){
+						$("#"+target).append('<br /><table id="'+target+'_table" border="1"></table>');
+						$("#"+target+"_table").append($('<th  width="100"></th>').text("個別ID")).append($('<th width="300"></th>').text("comment")).append($('<th width="250"></th>').text("Date"));			
+						$.each(result, function(i, data) {
+								$("#"+target+"_table").append($('<tr></tr>').append($('<td align="center"></td>').text(data.id)).append($('<td align="left"></td>').text(data.doc)).append($('<td align="center"></td>').text(data.date)));
+						});
+					} else {
+						$("#"+target).text("ITEM NOT FOUND");
+					}
+
+					$("#notification_ok").show();
+					$("#overlay").fadeOut();
+					setTimeout(function() {
+						$("#notification_ok").fadeOut();
+					}, 1500);
+				}
+			).fail(function(err) {
+ 				$("#err_msg").empty();
+ 				$("#err_msg").text(err.responseText);
+ 				$("#notification_ng").show(); 		
+				$("#overlay").fadeOut();
+		    });	
+	}
+
+	// 個別取得　GET
+	function resources_get (req_id) {
+		$("#overlay").fadeIn();
+   		$.ajax(API_endpoint+'/resource/'+req_id, {
+   			type: 'get'
+   		}
+   	).done(function(data) {
+	 		$("#notification_ok").show();
+			$("#overlay").fadeOut();
+			setTimeout(function() {
+				$("#notification_ok").fadeOut();
+			}, 1500);
+    		alert("秘密の言葉は："+data.secret_word);
+    	}
+    ).fail(function(err) {
+ 		$("#err_msg").empty();
+ 		$("#err_msg").text(err.responseText);
+ 		$("#notification_ng").show(); 		
+		$("#overlay").fadeOut();    });	
+	}
+
+	// 個別修正　PUT
+	function resources_put (req_id, req_data) {
+		$("#overlay").fadeIn();
+	   	$.ajax(API_endpoint+'/resource/'+req_id, 
+   			{ 
+   				type: 'PUT',
+  				data: JSON.stringify(req_data)
+  			}
+ 	 	).done(function(data) {
+				$("#notification_ok").show();
+				// リスト更新
+				$("#tabs-2-id").click();
+			}
+		).fail(function(err) {
+ 			$("#err_msg").empty();
+ 			$("#err_msg").text(err.responseText);
+ 			$("#notification_ng").show(); 		
+			$("#overlay").fadeOut();    });	
+	}
+
+	// 個別削除　DELETE
+	function resources_delete (req_id) {
+		$("#overlay").fadeIn();
+   		$.ajax(API_endpoint+'/resource/'+req_id, {
+   				type: 'delete'
+   			}
+   		).done(function(data) {
+	 			$("#notification_ok").show();
+				// リスト更新
+				$("#tabs-3-id").click();
+    		}
+		).fail(function(err) {
+ 			$("#err_msg").empty();
+ 			$("#err_msg").text(err.responseText);
+ 			$("#notification_ng").show(); 		
+			$("#overlay").fadeOut();
+	    });	
+	}
+})();
+
+$( "#tabs" ).tabs();
+// Hover states on the static widgets
+$( "#dialog-link, #icons li" ).hover(
+	function() {
+		$( this ).addClass( "ui-state-hover" );
+	},
+	function() {
+		$( this ).removeClass( "ui-state-hover" );
+	}
+);
+</script>
+</body>
+</html>

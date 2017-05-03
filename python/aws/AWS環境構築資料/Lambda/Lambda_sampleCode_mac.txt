@@ -1,0 +1,120 @@
+'use strict';
+
+
+const AWS = require('aws-sdk');
+const dynamo = new AWS.DynamoDB.DocumentClient();
+
+const tableName = process.env.TABLE_NAME;
+
+const createResponse = (statusCode, body) => {
+    
+    return {
+        statusCode: statusCode,
+        headers: {"Access-Control-Allow-Origin" : "*"},
+        body: body
+    }
+};
+
+exports.get = (event, context, callback) => {
+    
+    let params = {
+        TableName: tableName,
+        Key: {
+            id: event.pathParameters.resourceId
+        }
+    };
+    
+    let dbGet = (params) => { return dynamo.get(params).promise() };
+    
+    dbGet(params).then( (data) => {
+        if (!data.Item) {
+            callback(null, createResponse(404, "ITEM NOT FOUND"));
+            return;
+        }
+        // レスポンスBodyの作成
+        let ResMes = {
+            "Id": data.Item.id,
+            "Doc": data.Item.doc,
+            "Date": data.Item.date,
+            "secret_word": data.Item.secret_word
+        };
+        console.log(`RETRIEVED ITEM SUCCESSFULLY = ${JSON.stringify(ResMes)}`);
+        callback(null, createResponse(200, JSON.stringify(ResMes)));
+    }).catch( (err) => { 
+        console.log(`GET ITEM FAILED = ${event.pathParameters.resourceId}, WITH ERROR: ${err}`);
+        callback(null, createResponse(500, err));
+    });
+};
+
+exports.getall = (event, context, callback) => {
+    
+    let params = {
+        TableName: tableName,
+        Select: "ALL_ATTRIBUTES"
+    };
+    let dbGet = (params) => { return dynamo.scan(params).promise() };
+    
+    dbGet(params).then( (data) => {
+        if (data.Count === 0) {
+            callback(null, createResponse(200, "{}"));
+        } else {
+            // レスポンスBodyの作成
+            console.log(`RETRIEVED ITEM SUCCESSFULLY = ${JSON.stringify(data.Items)}`);
+            callback(null, createResponse(200, JSON.stringify(data.Items)));
+        }
+    }).catch( (err) => { 
+        console.log(`GET ITEMS FAILED, WITH ERROR: ${err}`);
+        callback(null, createResponse(500, err));
+    });
+};
+
+exports.put = (event, context, callback) => {
+    var put_body = JSON.parse(event.body);
+    console.log(put_body);
+    let item = {
+        id: event.pathParameters.resourceId,
+        doc: put_body.doc,
+        date: put_body.date,
+        secret_word: put_body.secret_word
+    };
+
+    let params = {
+        TableName: tableName,
+        Item: item
+    };
+    
+    let dbPut = (params) => { return dynamo.put(params).promise() };
+    
+    dbPut(params).then( (data) => {
+        console.log(`PUT ITEM SUCCEEDED = ${JSON.stringify(item)}`);
+        callback(null, createResponse(200, JSON.stringify(item)));
+    }).catch( (err) => { 
+        console.log(`PUT ITEM FAILED FOR doc = ${item.doc}, WITH ERROR: ${err}`);
+        callback(null, createResponse(500, err)); 
+    });
+};
+
+exports.delete = (event, context, callback) => {
+    
+    let params = {
+        TableName: tableName,
+        Key: {
+            id: event.pathParameters.resourceId
+        },
+        ReturnValues: 'ALL_OLD'
+    };
+    
+    let dbDelete = (params) => { return dynamo.delete(params).promise() };
+    
+    dbDelete(params).then( (data) => {
+        if (!data.Attributes) {
+            callback(null, createResponse(404, "ITEM NOT FOUND FOR DELETION"));
+            return;
+        }
+        console.log(`DELETED ITEM SUCCESSFULLY WITH id = ${event.pathParameters.resourceId}`);
+        callback(null, createResponse(200, event.pathParameters.resourceId));
+    }).catch( (err) => { 
+        console.log(`DELETE ITEM FAILED FOR id = ${event.pathParameters.resourceId}, WITH ERROR: ${err}`);
+        callback(null, createResponse(500, err));
+    });
+};
