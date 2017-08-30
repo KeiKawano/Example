@@ -19,4 +19,7 @@ search_response = youtube.search().list(
 # search_responseはAPIのレスポンスのJSONをパーズしたdict
 for item in search_response['items']:
   print(item['snippet']['title']) # 動画のタイトルを表示する
+  print(item)
+
+
 
